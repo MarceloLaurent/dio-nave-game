@@ -54,16 +54,23 @@ function start() { // Inicio da função start()
 
 		function movejogador() {
 	
-			if (jogo.pressionou[TECLA.W]) {
+			if (jogo.pressionou[TECLA.W] || jogo.pressionou[TECLA.UpArrow]) {
 				var topo = parseInt($("#jogador").css("top"));
-				$("#jogador").css("top",topo-10);
+				
+				if(topo > 12) {
+					$("#jogador").css("top",topo-10); 
+				}
 			
 			}
 			
-			if (jogo.pressionou[TECLA.S]) {
+			if (jogo.pressionou[TECLA.S] || jogo.pressionou[TECLA.DownArrow]) {
 				
 				var topo = parseInt($("#jogador").css("top"));
-				$("#jogador").css("top",topo+10);	
+
+				if(topo < 412) {
+					$("#jogador").css("top",topo+10);	
+				}
+
 			}
 			
 			if (jogo.pressionou[TECLA.D]) {
